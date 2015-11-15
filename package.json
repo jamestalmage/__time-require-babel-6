@@ -1,0 +1,17 @@
+{
+  "name": "time-require-babel-6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "James Talmage <james@talmage.io>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.1.21",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-stage-3": "^6.1.18",
+    "time-require": "^0.1.2"
+  }
+}
