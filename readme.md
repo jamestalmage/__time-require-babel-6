@@ -1,6 +1,8 @@
  1. clone
  2. `node index.js`
  
+# Before `npm dedupe`
+ 
 ```
 ➜  __time-require-babel-6 git:(master) ✗ node index.js 
 
@@ -135,4 +137,96 @@ Start time: (2015-11-15 23:40:58 UTC) [treshold=1%]
 126  ./visit (node_modules/babel-preset-es2015/node_modules/babel-plugin-transform-regenerator/lib/visit.js)   219ms  ▇▇▇▇▇▇▇ 6%
 Total require(): 10304
 Total time: 3.6s
+```
+
+# After `npm dedupe`
+
+```
+➜  __time-require-babel-6 git:(master) node index.js 
+
+
+Start time: (2015-11-15 23:55:04 UTC) [treshold=1%]
+ #  module                                                                                                     time  %
+ 1  ./$.iter-define (node_modules/babel-runtime/node_modules/core-js/library/modules/$.iter-define.js)         13ms  ▇▇ 2%
+ 2  ./es6.array.iterator (node_modules/babel-runtime/no...les/core-js/library/modules/es6.array.iterator.js)   18ms  ▇▇▇ 2%
+ 3  ../modules/web.dom.iterable (node_modules/babel-run...dules/core-js/library/modules/web.dom.iterable.js)   19ms  ▇▇▇ 2%
+ 4  core-js/library/fn/get-iterator (node_modules/babel...e/node_modules/core-js/library/fn/get-iterator.js)   24ms  ▇▇▇ 3%
+ 5  babel-runtime/core-js/get-iterator (node_modules/babel-runtime/core-js/get-iterator.js)                    24ms  ▇▇▇ 3%
+ 6  ./includes (node_modules/lodash/collection/includes.js)                                                    10ms  ▇▇ 1%
+ 7  lodash/collection/contains (node_modules/lodash/collection/contains.js)                                    10ms  ▇▇ 1%
+ 8  ../util (node_modules/babel-core/lib/util.js)                                                              46ms  ▇▇▇▇▇▇ 5%
+ 9  ./$.iter-define (node_modules/babel-types/node_modu..._modules/core-js/library/modules/$.iter-define.js)    9ms  ▇▇ 1%
+10  ./es6.array.iterator (node_modules/babel-types/node...les/core-js/library/modules/es6.array.iterator.js)   12ms  ▇▇ 1%
+11  ../modules/web.dom.iterable (node_modules/babel-typ...dules/core-js/library/modules/web.dom.iterable.js)   12ms  ▇▇ 1%
+12  core-js/library/fn/get-iterator (node_modules/babel...e/node_modules/core-js/library/fn/get-iterator.js)   19ms  ▇▇▇ 2%
+13  babel-runtime/core-js/get-iterator (node_modules/ba...ode_modules/babel-runtime/core-js/get-iterator.js)   19ms  ▇▇▇ 2%
+14  ./baseAssign (node_modules/babel-types/node_modules/lodash/internal/baseAssign.js)                          9ms  ▇▇ 1%
+15  ../internal/baseClone (node_modules/babel-types/node_modules/lodash/internal/baseClone.js)                 14ms  ▇▇ 2%
+16  lodash/lang/clone (node_modules/babel-types/node_modules/lodash/lang/clone.js)                             17ms  ▇▇▇ 2%
+17  ../internal/baseCallback (node_modules/babel-types/node_modules/lodash/internal/baseCallback.js)           12ms  ▇▇ 1%
+18  lodash/array/uniq (node_modules/babel-types/node_modules/lodash/array/uniq.js)                             15ms  ▇▇ 2%
+19  ./core (node_modules/babel-types/lib/definitions/core.js)                                                  12ms  ▇▇ 1%
+20  ./definitions/init (node_modules/babel-types/lib/definitions/init.js)                                      20ms  ▇▇▇ 2%
+21  ../scope (node_modules/babel-types/node_modules/babel-traverse/lib/scope/index.js)                         15ms  ▇▇ 2%
+22  babel-code-frame (node_modules/babel-types/node_mod...averse/node_modules/babel-code-frame/lib/index.js)    9ms  ▇▇ 1%
+23  ./parser (node_modules/babel-types/node_modules/bab...traverse/node_modules/babylon/lib/parser/index.js)   12ms  ▇▇ 1%
+24  ./parser/statement (node_modules/babel-types/node_m...erse/node_modules/babylon/lib/parser/statement.js)   10ms  ▇▇ 1%
+25  babylon (node_modules/babel-types/node_modules/babel-traverse/node_modules/babylon/lib/index.js)           35ms  ▇▇▇▇▇ 4%
+26  ./replacement (node_modules/babel-types/node_modules/babel-traverse/lib/path/replacement.js)               45ms  ▇▇▇▇▇▇ 5%
+27  ./path (node_modules/babel-types/node_modules/babel-traverse/lib/path/index.js)                            85ms  ▇▇▇▇▇▇▇▇▇▇▇ 10%
+28  ./context (node_modules/babel-types/node_modules/babel-traverse/lib/context.js)                            87ms  ▇▇▇▇▇▇▇▇▇▇▇ 10%
+29  babel-traverse (node_modules/babel-types/node_modules/babel-traverse/lib/index.js)                         91ms  ▇▇▇▇▇▇▇▇▇▇▇▇ 11%
+30  ./converters (node_modules/babel-types/lib/converters.js)                                                  96ms  ▇▇▇▇▇▇▇▇▇▇▇▇ 11%
+31  babel-types (node_modules/babel-types/lib/index.js)                                                       200ms  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 24%
+32  ./$.iter-define (node_modules/babel-traverse/node_m..._modules/core-js/library/modules/$.iter-define.js)    9ms  ▇▇ 1%
+33  ./es6.array.iterator (node_modules/babel-traverse/n...les/core-js/library/modules/es6.array.iterator.js)   13ms  ▇▇ 2%
+34  ../modules/web.dom.iterable (node_modules/babel-tra...dules/core-js/library/modules/web.dom.iterable.js)   13ms  ▇▇ 2%
+35  core-js/library/fn/get-iterator (node_modules/babel...e/node_modules/core-js/library/fn/get-iterator.js)   18ms  ▇▇▇ 2%
+36  babel-runtime/core-js/get-iterator (node_modules/ba...ode_modules/babel-runtime/core-js/get-iterator.js)   18ms  ▇▇▇ 2%
+37  ../internal/baseClone (node_modules/babel-traverse/node_modules/lodash/internal/baseClone.js)              12ms  ▇▇ 1%
+38  lodash/lang/clone (node_modules/babel-traverse/node_modules/lodash/lang/clone.js)                          14ms  ▇▇ 2%
+39  ../internal/baseCallback (node_modules/babel-traverse/node_modules/lodash/internal/baseCallback.js)        12ms  ▇▇ 1%
+40  lodash/array/uniq (node_modules/babel-traverse/node_modules/lodash/array/uniq.js)                          16ms  ▇▇ 2%
+41  ./definitions/init (node_modules/babel-traverse/node_modules/babel-types/lib/definitions/init.js)          12ms  ▇▇ 1%
+42  babel-types (node_modules/babel-traverse/node_modules/babel-types/lib/index.js)                            74ms  ▇▇▇▇▇▇▇▇▇▇ 9%
+43  ./lib/virtual-types (node_modules/babel-traverse/lib/path/lib/virtual-types.js)                            75ms  ▇▇▇▇▇▇▇▇▇▇ 9%
+44  ../scope (node_modules/babel-traverse/lib/scope/index.js)                                                  11ms  ▇▇ 1%
+45  babel-code-frame (node_modules/babel-traverse/node_modules/babel-code-frame/lib/index.js)                  11ms  ▇▇ 1%
+46  ./parser (node_modules/babel-traverse/node_modules/babylon/lib/parser/index.js)                            14ms  ▇▇ 2%
+47  babylon (node_modules/babel-traverse/node_modules/babylon/lib/index.js)                                    31ms  ▇▇▇▇ 4%
+48  ./replacement (node_modules/babel-traverse/lib/path/replacement.js)                                        43ms  ▇▇▇▇▇▇ 5%
+49  ./path (node_modules/babel-traverse/lib/path/index.js)                                                    155ms  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 19%
+50  ./context (node_modules/babel-traverse/lib/context.js)                                                    156ms  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 19%
+51  babel-traverse (node_modules/babel-traverse/lib/index.js)                                                 184ms  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 22%
+52  core-js/library/fn/map (node_modules/babel-runtime/node_modules/core-js/library/fn/map.js)                 10ms  ▇▇ 1%
+53  babel-runtime/core-js/map (node_modules/babel-runtime/core-js/map.js)                                      10ms  ▇▇ 1%
+54  ../store (node_modules/babel-core/lib/store.js)                                                            11ms  ▇▇ 1%
+55  ../../plugin (node_modules/babel-core/lib/transformation/plugin.js)                                        24ms  ▇▇▇ 3%
+56  ../transformation/file/options/option-manager (node...lib/transformation/file/options/option-manager.js)   37ms  ▇▇▇▇▇ 4%
+57  ./es6.array.iterator (node_modules/babylon/node_mod...les/core-js/library/modules/es6.array.iterator.js)   10ms  ▇▇ 1%
+58  ../modules/web.dom.iterable (node_modules/babylon/n...dules/core-js/library/modules/web.dom.iterable.js)   10ms  ▇▇ 1%
+59  core-js/library/fn/get-iterator (node_modules/babyl...e/node_modules/core-js/library/fn/get-iterator.js)   13ms  ▇▇ 2%
+60  babel-runtime/core-js/get-iterator (node_modules/ba...ode_modules/babel-runtime/core-js/get-iterator.js)   14ms  ▇▇ 2%
+61  ./parser (node_modules/babylon/lib/parser/index.js)                                                        30ms  ▇▇▇▇ 4%
+62  babylon (node_modules/babylon/lib/index.js)                                                                43ms  ▇▇▇▇▇▇ 5%
+63  babel-template (node_modules/babel-template/lib/index.js)                                                  52ms  ▇▇▇▇▇▇▇ 6%
+64  ./helpers (node_modules/babel-core/node_modules/babel-helpers/lib/helpers.js)                              58ms  ▇▇▇▇▇▇▇▇ 7%
+65  babel-helpers (node_modules/babel-core/node_modules/babel-helpers/lib/index.js)                            61ms  ▇▇▇▇▇▇▇▇ 7%
+66  ./whitespace (node_modules/babel-core/node_modules/babel-generator/lib/node/whitespace.js)                 14ms  ▇▇ 2%
+67  ./node (node_modules/babel-core/node_modules/babel-generator/lib/node/index.js)                            17ms  ▇▇▇ 2%
+68  ./printer (node_modules/babel-core/node_modules/babel-generator/lib/printer.js)                            33ms  ▇▇▇▇▇ 4%
+69  babel-generator (node_modules/babel-core/node_modules/babel-generator/lib/index.js)                        39ms  ▇▇▇▇▇ 5%
+70  babel-code-frame (node_modules/babel-core/node_modules/babel-code-frame/lib/index.js)                      11ms  ▇▇ 1%
+71  ./file (node_modules/babel-core/lib/transformation/file/index.js)                                         133ms  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 16%
+72  ../transformation/pipeline (node_modules/babel-core/lib/transformation/pipeline.js)                       134ms  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 16%
+73  ./lib/api/node.js (node_modules/babel-core/lib/api/node.js)                                               609ms  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 73%
+74  babel-core (node_modules/babel-core/index.js)                                                             610ms  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 73%
+75  babel-plugin-transform-es2015-classes (node_modules...abel-plugin-transform-es2015-classes/lib/index.js)   10ms  ▇▇ 1%
+76  regexpu/rewrite-pattern (node_modules/babel-preset-...ode-regex/node_modules/regexpu/rewrite-pattern.js)   16ms  ▇▇ 2%
+77  babel-plugin-transform-es2015-unicode-regex (node_m...lugin-transform-es2015-unicode-regex/lib/index.js)   17ms  ▇▇▇ 2%
+78  babel-plugin-transform-es2015-parameters (node_modu...l-plugin-transform-es2015-parameters/lib/index.js)   10ms  ▇▇ 1%
+79  /Users/jamestalmage/work/src/github.com/jamestalmag...dex.js (node_modules/babel-preset-es2015/index.js)   62ms  ▇▇▇▇▇▇▇▇ 7%
+80  ./visit (node_modules/babel-preset-es2015/node_modules/babel-plugin-transform-regenerator/lib/visit.js)    10ms  ▇▇ 1%
+Total require(): 2180
+Total time: 837ms
 ```
